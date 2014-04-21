@@ -12,16 +12,6 @@ window.onload = function () {
 	lineNumbers: true,
 	styleActiveLine: true,
     	matchBrackets: true,
-	extraKeys: {
-            //key binding for toggle full screen on/off
-            "F2": function(cm) {
-                cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-            },
-            //key binding for switch full screen off
-            "Esc": function(cm) {
-                if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-            }
-        }
     });
 
     myCodeMirror.setOption('theme', 'ambiance');
