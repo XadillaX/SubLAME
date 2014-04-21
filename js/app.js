@@ -2,6 +2,28 @@
 //   	win = gui.Window.get();
 //   	win.showDevTools();
 
+var themes, getThemesPath;
+
+getThemesPath = function (themeName) {
+    return ['vendor/codemirror/theme/', themeName, '.css'].join('');
+};
+
+themes = [
+    'monokai',
+    'solarized',
+    'tomorrow-night-eighties'
+];
+
+function changeTheme(cm) {
+    var promptMsg, res;
+    promptMsg = "Available themes are:\n" +
+	themes.join('\n') +
+	"\n";
+    res = prompt(promptMsg);
+    if (res) {
+	cm.setOption('theme', themes[res]);
+    }
+}
 
 window.onload = function () {
 
@@ -15,12 +37,9 @@ window.onload = function () {
 	lineNumbers: true,
 	styleActiveLine: true,
     	matchBrackets: true,
-        extraKeys: {
-        "F11": function (cm) {
-            console.log(win);
-            win.toggleFullscreen()
-        }
-    }
+	extraKeys: {
+	    "Ctrl-T": changeTheme
+	}
     });
 
     myCodeMirror.setOption('theme', 'ambiance');
