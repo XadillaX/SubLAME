@@ -4,7 +4,10 @@
 
 
 window.onload = function () {
-    var sublameText, myCodeMirror;
+
+    var sublameText, myCodeMirror,
+        gui = require('nw.gui'), //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
+        win = gui.Window.get(); // Get the current window
 
     sublameText = document.getElementById('sublame-text');
 
@@ -12,6 +15,12 @@ window.onload = function () {
 	lineNumbers: true,
 	styleActiveLine: true,
     	matchBrackets: true,
+        extraKeys: {
+        "F11": function (cm) {
+            console.log(win);
+            win.toggleFullscreen()
+        }
+    }
     });
 
     myCodeMirror.setOption('theme', 'ambiance');
