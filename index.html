@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Inferior</title>
+
+        
+        <script src="vendor/js-url-1.8.4/url.js"></script>
+        <link rel="stylesheet" href="vendor/normalize-2.1.2.css">
+        
+        <!-- CodeMirror editor -->
+        <script src="vendor/codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css">
+        
+        <!-- CodeMirror theme and editor styles -->
+        <link rel="stylesheet" href="css/inferior.css">
+        
+        <!-- CodeMirror addons: edit helpers -->
+        <script src="vendor/codemirror/addon/edit/closebrackets.js"></script>
+        <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
+        <script src="vendor/codemirror/addon/selection/active-line.js"></script>
+        
+        <!-- CodeMirror addon: dialog -->
+        <link rel="stylesheet" href="vendor/codemirror/addon/dialog/dialog.css">
+        <script src="vendor/codemirror/addon/dialog/dialog.js"></script>
+        
+        <!-- CodeMirror addon: search -->
+        <script src="vendor/codemirror/addon/search/search.js"></script>
+        <script src="vendor/codemirror/addon/search/searchcursor.js"></script>
+
+        <!-- CodeMirror addon: comment -->
+        <script src="vendor/codemirror/addon/comment/comment.js"></script>
+
+        <!-- CodeMirror addon: show hint -->
+        <link rel="stylesheet" href="vendor/codemirror/addon/hint/show-hint.css">
+        <script src="vendor/codemirror/addon/hint/show-hint.js"></script>
+
+        <!-- CodeMirror addon: linter -->
+        <link rel="stylesheet" href="vendor/codemirror/addon/lint/lint.css">
+        <script src="vendor/codemirror/addon/lint/lint.js"></script>
+
+
+        
+        <!-- Acorn Javascript parser (used by Tern) -->
+        <script src="vendor/acorn-0.3.1/acorn.js"></script>
+        <script src="vendor/acorn-0.3.1/acorn_loose.js"></script>
+        <script src="vendor/acorn-0.3.1/util/walk.js"></script>
+
+        <!-- Tern -->
+        <script src="vendor/tern-0.4.0/lib/signal.js"></script>
+        <script src="vendor/tern-0.4.0/lib/tern.js"></script>
+        <script src="vendor/tern-0.4.0/lib/def.js"></script>
+        <script src="vendor/tern-0.4.0/lib/comment.js"></script>
+        <script src="vendor/tern-0.4.0/lib/infer.js"></script>
+        
+        <!-- JsHint linter (used by addon javascript-lint) -->
+        <script src="vendor/jshint-2.1.10.js"></script>
+        
+        <!-- CodeMirror mode: javascript -->
+        <script src="vendor/codemirror/mode/javascript/javascript.js"></script>
+        
+        <!-- CodeMirror addon: javascript linter -->
+        <script src="vendor/codemirror/addon/lint/javascript-lint.js"></script>
+        
+        <!-- CodeMirror addon: tern -->
+        <link rel="stylesheet" href="vendor/codemirror/addon/tern/tern.css">
+        <script src="vendor/codemirror/addon/tern/tern.js"></script>
+
+        
+        <!-- CodeMirror modes: HTML mixed and CSS -->
+        <script src="vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="vendor/codemirror/mode/css/css.js"></script>
+
+        <!-- CodeMirror addon: emmet -->
+        <script src="vendor/emmet-codemirror/emmet.min.js"></script>
+        
+        <script src="vendor/codemirror/mode/clike/clike.js"></script>
+        <script src="vendor/codemirror/mode/markdown/markdown.js"></script>
+        <script src="vendor/codemirror/mode/python/python.js"></script>
+        <script src="vendor/codemirror/mode/xml/xml.js"></script>
+        
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/default-theme.css">
+        <script src="js/app.js"></script>
+    </head>
+    <body>
+        <div class="toolbar"></div>
+        <div class="editor-wrapper">
+        <textarea id="inferior-text"></textarea>
+        
+        </div>
+    </body>
+</html>
+
