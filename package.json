@@ -1,20 +1,20 @@
 {
-    "name": "Inferior",
+    "name": "SubLAME",
     "description": "A code editor based on CodeMirror and node-webkit",
     "author": "Ib Quezada",
     "version": "13.10.041125",
     
     "main": "index.html",
     "window": {
-        "title": "Inferior",
-        "toolbar": true
+        "title": "SubLAME",
+        "toolbar": false
     },
     
     "single-instance": false,
     
     "repositories": [{
         "type": "git",
-        "url": "http://github.com/ibito/Inferior.git"
+        "url": "http://github.com/ibito/SubLAME.git"
     }]
 }
 

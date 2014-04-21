@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Inferior</title>
+        <title>SubLAME</title>
 
         
         <script src="vendor/js-url-1.8.4/url.js"></script>
@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css">
         
         <!-- CodeMirror theme and editor styles -->
-        <link rel="stylesheet" href="css/inferior.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/monokai.css">
+        <link rel="stylesheet" href="css/sublame.css">
         
         <!-- CodeMirror addons: edit helpers -->
         <script src="vendor/codemirror/addon/edit/closebrackets.js"></script>
@@ -39,8 +40,6 @@
         <link rel="stylesheet" href="vendor/codemirror/addon/lint/lint.css">
         <script src="vendor/codemirror/addon/lint/lint.js"></script>
 
-
-        
         <!-- Acorn Javascript parser (used by Tern) -->
         <script src="vendor/acorn-0.3.1/acorn.js"></script>
         <script src="vendor/acorn-0.3.1/acorn_loose.js"></script>
@@ -67,27 +66,60 @@
         <script src="vendor/codemirror/addon/tern/tern.js"></script>
 
         
-        <!-- CodeMirror modes: HTML mixed and CSS -->
-        <script src="vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-        <script src="vendor/codemirror/mode/css/css.js"></script>
 
         <!-- CodeMirror addon: emmet -->
         <script src="vendor/emmet-codemirror/emmet.min.js"></script>
-        
-        <script src="vendor/codemirror/mode/clike/clike.js"></script>
-        <script src="vendor/codemirror/mode/markdown/markdown.js"></script>
-        <script src="vendor/codemirror/mode/python/python.js"></script>
-        <script src="vendor/codemirror/mode/xml/xml.js"></script>
-        
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="css/default-theme.css">
+
         <script src="js/app.js"></script>
+
+        <!-- CodeMirror modes: HTML mixed and CSS -->
+        <script src="vendor/codemirror/mode/xml/xml.js"></script>
+        <script src="vendor/codemirror/mode/javascript/javascript.js"></script>
+        <script src="vendor/codemirror/mode/css/css.js"></script>
+        <script src="vendor/codemirror/mode/vbscript/vbscript.js"></script>
+        <script src="vendor/codemirror/mode/xml/xml.js"></script>
+        <script src="vendor/codemirror/mode/clike/clike.js"></script>
+        <script src="vendor/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+        <script src="vendor/codemirror/mode/php/php.js"></script>
+        <script src="vendor/codemirror/mode/sql/sql.js"></script>
+
+
+        <!-- Themes -->
+        <link rel="stylesheet" href="vendor/codemirror/theme/3024-day.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/3024-night.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/ambiance.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/base16-dark.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/base16-light.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/blackboard.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/cobalt.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/eclipse.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/elegant.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/erlang-dark.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/lesser-dark.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/mbo.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/mdn-like.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/midnight.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/monokai.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/neat.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/night.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/paraiso-dark.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/paraiso-light.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/pastel-on-dark.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/rubyblue.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/solarized.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/the-matrix.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/tomorrow-night-eighties.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/twilight.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/vibrant-ink.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/xq-dark.css">
+        <link rel="stylesheet" href="vendor/codemirror/theme/xq-light.css">
     </head>
     <body>
         <div class="toolbar"></div>
         <div class="editor-wrapper">
-            <textarea id="inferior-text"></textarea>
+            <textarea id="sublame-text"></textarea>
         
         </div>
     </body>
