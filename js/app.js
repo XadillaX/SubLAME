@@ -20,11 +20,13 @@ window.onload = function () {
         }); 
     }
 
+    function setWindowTitle(title) {
+        win.title = title;
+    }
+
     function saveDialog(name, text) {
         var chooser = document.querySelector(name),
             fileName = null;
-
-        console.log('isNewFile', myCodeMirror.getOption('isNewFile'));
         
         if (myCodeMirror.getOption('isNewFile')) {
 	        chooser.addEventListener("change", function(evt) {
@@ -33,6 +35,7 @@ window.onload = function () {
                 myCodeMirror.setOption('isNewFile', false);
                 myCodeMirror.setOption('fileName', fileName);
                 console.log(myCodeMirror.getOption('fileName'));
+                setWindowTitle('SubLAME - ' + fileName);
 	        }, false);
             chooser.click(); 
 	    } else {
@@ -46,6 +49,8 @@ window.onload = function () {
         chooser.addEventListener("change", function(evt) {
             fileName = this.value;
             openFile(fileName);
+
+            setWindowTitle('SubLAME - ' + fileName);
         }, false);
         chooser.click();
     }
