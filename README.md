@@ -7,10 +7,10 @@ Current Features
 ================
 (Not a lot yet)
 
-- Open File
-- Save File
-- CodeMirror features (HTML syntax coloring, emmet, etc.)
-- Fullscreen support
+- Open File ```Ctrl+O```
+- Save File ```Ctrl+S```
+- CodeMirror features (HTML syntax coloring, emmet, etc.) ``` ? ```
+- Fullscreen support ```F11```
 
 Screenshots
 ===========
