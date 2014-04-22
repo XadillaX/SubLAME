@@ -43,5 +43,6 @@ Tech
 SubLAME uses a number of open source projects to work:
 - [Node Webkit](https://github.com/rogerwang/node-webkit)
 - [CodeMirror](http://codemirror.net)
+- [gulp.js](http://gulpjs.com/)
 - (we're sure we'll use more)
 
