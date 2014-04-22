@@ -1,9 +1,10 @@
 // REQUIRED MODULES DECLARATIONS
 var SublameFs = require('./js/sublame-fs').SublameFs,
+    SublameUI = require('./js/sublame-ui').SublameUI,
     fs = require('fs');
 
 // SVP
-var sublameText, myCodeMirror, sublameFs,
+var sublameText, myCodeMirror, sublameFs, sublameUI,
 
     //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
     gui = require('nw.gui'),
@@ -13,47 +14,6 @@ var sublameText, myCodeMirror, sublameFs,
 
 
 window.onload = function () {
-/* refactor to sublame-??? */
-    function setWindowTitle(title) {
-        win.title = title;
-    }
-/* refactor to sublame-??? */
-    function saveDialog(name, text) {
-        var chooser = document.querySelector(name),
-            fileName = null;
-        
-        if (myCodeMirror.getOption('isNewFile')) {
-	    chooser.addEventListener("change", function(evt) {
-                fileName = this.value;
-                sublameFs.writeFile(fileName, text);
-                
-		myCodeMirror.setOption('isNewFile', false);
-                myCodeMirror.setOption('fileName', fileName);
-                
-		console.log(myCodeMirror.getOption('fileName'));
-                setWindowTitle('SubLAME - ' + fileName);
-	    }, false);
-            chooser.click(); 
-	} else {
-	    sublameFs.writeFile(myCodeMirror.getOption('fileName'), myCodeMirror.getValue());
-	}
-    }
-
-    function openDialog(name) {
-        var chooser = document.querySelector(name),
-            fileName = null;
-        
-	chooser.addEventListener("change", function(evt) {
-            fileName = this.value;
-            sublameFs.openFile(fileName);
-
-            setWindowTitle('SubLAME - ' + fileName);
-        }, false);
-        
-	chooser.click();
-    }
-/**/
-
     sublameText = document.getElementById('sublame-text');
 
     myCodeMirror = CodeMirror.fromTextArea(sublameText, {
@@ -63,13 +23,13 @@ window.onload = function () {
         extraKeys: {
             "F11": function (cm) {
                 console.log(win);
-                win.toggleFullscreen()
+                win.toggleFullscreen();
             },
             "Ctrl-S": function (cm) {
-                saveDialog('#fileDialog', cm.getValue());
+                sublameUI.saveDialog('#fileDialog', cm.getValue());
             },
             "Ctrl-O": function (cm) {
-                openDialog('#openDialog');
+                sublameUI.openDialog('#openDialog');
             }
         }
     });
@@ -85,4 +45,5 @@ window.onload = function () {
 
     /**/
     sublameFs = new SublameFs(myCodeMirror);
+    sublameUI = new SublameUI(myCodeMirror, win, document, sublameFs);
 };
