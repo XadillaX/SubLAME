@@ -1,75 +1,64 @@
-// var gui = require('nw.gui'),
-//   	win = gui.Window.get();
-//   	win.showDevTools();
+// REQUIRED MODULES DECLARATIONS
+var SublameFs = require('./js/sublame-fs').SublameFs,
+    fs = require('fs');
+
+// SVP
+var sublameText, myCodeMirror, sublameFs,
+
+    //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
+    gui = require('nw.gui'),
+
+    // Get the current window
+    win = gui.Window.get();
 
 
 window.onload = function () {
-	function writeFile(fileName, text) {
-        fs.writeFile(fileName, text, function(err) {
-            if(err) {
-                alert("error");
-            }
-        });
-	}
-
-    function openFile(fileName) {
-        fs.readFile(fileName, 'utf-8', function (error, contents) {
-            if (error && error.errno === 34) {
-                return;
-            }
-            myCodeMirror.setValue(contents);
-            myCodeMirror.setOption('isNewFile', false);
-            myCodeMirror.setOption('fileName', fileName);
-        }); 
-    }
-
+/* refactor to sublame-??? */
     function setWindowTitle(title) {
         win.title = title;
     }
-
+/* refactor to sublame-??? */
     function saveDialog(name, text) {
         var chooser = document.querySelector(name),
             fileName = null;
         
         if (myCodeMirror.getOption('isNewFile')) {
-	        chooser.addEventListener("change", function(evt) {
+	    chooser.addEventListener("change", function(evt) {
                 fileName = this.value;
-                writeFile(fileName, text);
-                myCodeMirror.setOption('isNewFile', false);
+                sublameFs.writeFile(fileName, text);
+                
+		myCodeMirror.setOption('isNewFile', false);
                 myCodeMirror.setOption('fileName', fileName);
-                console.log(myCodeMirror.getOption('fileName'));
+                
+		console.log(myCodeMirror.getOption('fileName'));
                 setWindowTitle('SubLAME - ' + fileName);
-	        }, false);
+	    }, false);
             chooser.click(); 
-	    } else {
-            writeFile(myCodeMirror.getOption('fileName'), myCodeMirror.getValue());
-	    }
+	} else {
+	    sublameFs.writeFile(myCodeMirror.getOption('fileName'), myCodeMirror.getValue());
+	}
     }
 
     function openDialog(name) {
         var chooser = document.querySelector(name),
             fileName = null;
-        chooser.addEventListener("change", function(evt) {
+        
+	chooser.addEventListener("change", function(evt) {
             fileName = this.value;
-            openFile(fileName);
+            sublameFs.openFile(fileName);
 
             setWindowTitle('SubLAME - ' + fileName);
         }, false);
-        chooser.click();
+        
+	chooser.click();
     }
-
-
-    var sublameText, myCodeMirror,
-        gui = require('nw.gui'), //or global.window.nwDispatcher.requireNwGui() (see https://github.com/rogerwang/node-webkit/issues/707)
-        fs = require('fs'),
-        win = gui.Window.get(); // Get the current window
+/**/
 
     sublameText = document.getElementById('sublame-text');
 
-
     myCodeMirror = CodeMirror.fromTextArea(sublameText, {
-    lineNumbers: true,
-    styleActiveLine: true,
+	lineNumbers: true,
+	styleActiveLine: true,
         matchBrackets: true,
         extraKeys: {
             "F11": function (cm) {
@@ -84,6 +73,7 @@ window.onload = function () {
             }
         }
     });
+
     myCodeMirror.setOption('isNewFile', true);
 
     myCodeMirror.setOption('theme', 'ambiance');
@@ -93,4 +83,6 @@ window.onload = function () {
 
     myCodeMirror.focus();
 
+    /**/
+    sublameFs = new SublameFs(myCodeMirror);
 };
