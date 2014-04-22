@@ -14,6 +14,9 @@ window.onload = function () {
 
     function openFile(fileName) {
         fs.readFile(fileName, 'utf-8', function (error, contents) {
+            if (error && error.errno === 34) {
+                return;
+            }
             myCodeMirror.setValue(contents);
             myCodeMirror.setOption('isNewFile', false);
             myCodeMirror.setOption('fileName', fileName);
